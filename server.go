@@ -70,7 +70,7 @@ func handleConnection(client net.Conn) {
         if err == nil {
             numPackets++;
             num, err1:= client.Write(line)
-            log.Printf("%d.%d: %v <-> %v: %s", numConnections, numPackets, client.LocalAddr(), client.RemoteAddr(), line)
+            log.Printf("%d.%d: %v <-> %v: %q", numConnections, numPackets, client.LocalAddr(), client.RemoteAddr(), line)
             if err1 != nil {
                 log.Printf("Error, only %d of %d byte(s) could be echoed (%s).\n", num, len(line), err1.Error())    
             }
